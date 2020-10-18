@@ -24,4 +24,21 @@ describe('Work with basic elements', () =>{
     cy.get('#resultado').should('have.text', 'Voltou!')
   })
 
+  it.only('TextFields', ()=>{
+    cy.get('#formNome').type('Luis Feitosa')
+    cy.get('#formNome').should('have.value','Luis Feitosa')
+
+    cy.get('#elementosForm\\:sugestoes').type('textArea')
+    cy.get('#elementosForm\\:sugestoes').should('have.value','textArea')
+
+    cy.get('[data-cy=dataSobrenome]')
+      .type('teste12345{backspace}')
+      .should('have.value', 'teste1234')
+
+      cy.get('#elementosForm\\:sugestoes')
+        .clear()
+        .type('Erro{selectall}acerto', {delay:100})
+        .should('have.value','acerto')
+  })
+
 })
