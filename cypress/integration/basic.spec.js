@@ -13,6 +13,10 @@ describe('Cypress basics', () =>{
     cy.title()
         .should('be.equal', 'Campo de Treinamento')
         .should('contain', 'Campo')
+
+        cy.title().then(title=>{
+          console.log(title)
+        })
   })
 
   it ('Should fin and interact with an element', () =>{
